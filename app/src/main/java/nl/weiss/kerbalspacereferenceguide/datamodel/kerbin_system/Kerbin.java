@@ -6,7 +6,10 @@ import nl.weiss.kerbalspacereferenceguide.datamodel.MoonInterface;
 import nl.weiss.kerbalspacereferenceguide.datamodel.PlanetInterface;
 
 /**
- * For all planets implement a custom class; However it would be
+ * For all planets implement a custom class.
+ *
+ * Kerbin is the home planet of the kerbals. It has 2 moons and will require the most delta V to get in orbit to. From Kerbin on out it is an easy ride. It is also one of the planets that
+ * has its geostationary orbit described and has 
  */
 public class Kerbin implements PlanetInterface {
 
@@ -88,21 +91,21 @@ public class Kerbin implements PlanetInterface {
 
     @Override
     public double getDeltaVForLowOrbit() {
-        return DELTAV_FOR_LOW_ORBIT * SAFE_DELTAV_MODIFIER;
+        return (DELTAV_FOR_LOW_ORBIT * SAFE_DELTAV_MODIFIER);
     }
 
     @Override
     public double getDeltaVForSOIEdge() {
-        return 0;
+        return (DELTAV_FOR_SOI_EDGE_ORBIT * SAFE_DELTAV_MODIFIER);
     }
 
     @Override
     public double getDeltaVForIntercept() {
-        return 0;
+        return (DELTAV_FOR_INTERCEPT * SAFE_DELTAV_MODIFIER);
     }
 
     @Override
     public boolean AerobrakingPossible() {
-        return false;
+        return AEROBRAKING_POSSIBLE_FOR_PLANET;
     }
 }
