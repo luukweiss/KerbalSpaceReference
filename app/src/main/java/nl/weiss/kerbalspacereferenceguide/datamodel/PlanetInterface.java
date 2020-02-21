@@ -5,6 +5,8 @@ public interface PlanetInterface {
     /** Get the name of the planet*/
     String getName();
 
+    String getDescription();
+
     /** Get the altitude where the atmosphere starts in km */
     int getAtmosphereInKm();
 
@@ -28,6 +30,8 @@ public interface PlanetInterface {
 
     double getDeltaVForIntercept();
 
-    boolean AerobrakingPossible();
+    boolean hasAerobreakingPossibility();
+
+    boolean hasAtmosphere();
 
 }

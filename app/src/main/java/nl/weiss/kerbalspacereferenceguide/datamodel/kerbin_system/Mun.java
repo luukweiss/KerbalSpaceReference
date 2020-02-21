@@ -1,22 +1,11 @@
 package nl.weiss.kerbalspacereferenceguide.datamodel.kerbin_system;
 
-import java.util.List;
-
 import nl.weiss.kerbalspacereferenceguide.datamodel.MoonInterface;
-import nl.weiss.kerbalspacereferenceguide.datamodel.PlanetInterface;
 
-/**
- * For all planets implement a custom class.
- *
- * Kerbin is the home planet of the kerbals. It has 2 moons and will require the most delta V to get in orbit to. From Kerbin on out it is an easy ride. It is also one of the planets that
- * has its geostationary orbit described and has
- */
-public class Kerbin implements PlanetInterface {
+public class Mun implements MoonInterface {
 
-    private static Kerbin kerbin_instance = null;
-
-    private static final String PLANET_NAME = "Kerbin";
-    private static final String DESCRIPTION = "Kerbin is the home planet of the Kerbals. Once you get in orbit, you are halfway to the stars!";
+    private static final String PLANET_NAME = "Mun";
+    private static final String DESCRIPTION = "The mun is the clostest and biggest moon of Kerbin. It is really hard to land on but the views can be amazing!";
     private static final int ATMOSPHERE_HEIGHT_IN_KM = 70;
     private static final String SEMI_SYNCHRONOUS_ORBIT_PERIOD = "2H:59M:34.7S";
     private static final double SEMI_SYNCHRONOUS_ORBIT_VELOCITY = 1272.28;
@@ -38,85 +27,64 @@ public class Kerbin implements PlanetInterface {
 
     private static final boolean HAS_MOONS = true;
 
-    private List<MoonInterface> MOONS;
-
-    private Kerbin() {
-        // todo do init for moons
-    }
-
-    /**
-     * Get the current kerbin instance. Will dynamically create the moons at init
-     * @return The kerbin instance
-     */
-    public static Kerbin getInstance() {
-        if (kerbin_instance == null) {
-            kerbin_instance = new Kerbin();
-        }
-        return kerbin_instance;
-    }
 
     @Override
     public String getName() {
-        return PLANET_NAME;
+        return null;
     }
 
     @Override
     public String getDescription() {
-        return DESCRIPTION;
+        return null;
     }
 
     @Override
     public int getAtmosphereInKm() {
-        return ATMOSPHERE_HEIGHT_IN_KM;
+        return 0;
     }
 
     @Override
     public int getAtmosphereInMeters() {
-        return (ATMOSPHERE_HEIGHT_IN_KM * 1000);
+        return 0;
     }
 
     @Override
     public String getSemiSynchronousObritPeriod() {
-        return SEMI_SYNCHRONOUS_ORBIT_PERIOD;
+        return null;
     }
 
     @Override
     public double getOrbitalVelocity() {
-        return SEMI_SYNCHRONOUS_ORBIT_VELOCITY;
+        return 0;
     }
 
     @Override
     public double getGeostationaryOrbitAltitude() {
-        return GEO_STATIONARY_ORBIT_ALTITUDE;
+        return 0;
     }
 
     @Override
     public double getLowOrbitAltitude() {
-        return LOW_ORBIT_ALTITUDE_IN_KM;
+        return 0;
     }
 
     @Override
     public double getDeltaVForLowOrbit() {
-        return (DELTAV_FOR_LOW_ORBIT * SAFE_DELTAV_MODIFIER);
+        return 0;
     }
 
     @Override
     public double getDeltaVForSOIEdge() {
-        return (DELTAV_FOR_SOI_EDGE_ORBIT * SAFE_DELTAV_MODIFIER);
+        return 0;
     }
 
     @Override
     public double getDeltaVForIntercept() {
-        return (DELTAV_FOR_INTERCEPT * SAFE_DELTAV_MODIFIER);
+        return 0;
     }
 
     @Override
     public boolean hasAerobreakingPossibility() {
-        return AEROBRAKING_POSSIBLE_FOR_PLANET;
-    }
-
-    @Override
-    public boolean hasAtmosphere() {
-        return true;
+        return false;
     }
 }
