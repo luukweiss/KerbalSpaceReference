@@ -3,7 +3,7 @@
 Hello! This application is a project to capture nummeric values and mathematics about Kerbal Space Program. This project is aimed at players or enthusiasts that like
 orbital mechanics or just a pretty application. The goals are to be accurate, meaningful (or additive) and pretty. This means:
 
-###accurate
+### accurate
 Or up to date, which means whenever stats change this needs to be updated (or fetched from external remote)
 
 ### meaninfull
