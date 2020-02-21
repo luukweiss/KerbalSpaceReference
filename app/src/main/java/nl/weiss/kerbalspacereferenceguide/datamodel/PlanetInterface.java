@@ -20,13 +20,13 @@ public interface PlanetInterface {
     /** Altitude of the geostationary orbit in km*/
     double getGeostationaryOrbitAltitude();
 
-    int getLowOrbitAltitude();
+    double getLowOrbitAltitude();
 
-    int getDeltaVForLowOrbit();
+    double getDeltaVForLowOrbit();
 
-    int getDeltaVForSOIEdge();
+    double getDeltaVForSOIEdge();
 
-    int getDeltaVForIntercept();
+    double getDeltaVForIntercept();
 
     boolean AerobrakingPossible();
 

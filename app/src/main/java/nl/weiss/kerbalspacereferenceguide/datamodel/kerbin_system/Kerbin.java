@@ -1,8 +1,5 @@
 package nl.weiss.kerbalspacereferenceguide.datamodel.kerbin_system;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import nl.weiss.kerbalspacereferenceguide.datamodel.MoonInterface;
@@ -20,24 +17,27 @@ public class Kerbin implements PlanetInterface {
     private static final String SEMI_SYNCHRONOUS_ORBIT_PERIOD = "2H:59M:34.7S";
     private static final double SEMI_SYNCHRONOUS_ORBIT_VELOCITY = 1272.28;
     private static final double GEO_STATIONARY_ORBIT_ALTITUDE = 2863.33;
-    private static final int LOW_ORBIT_ALTITUDE_IN_KM = 80;
+    private static final int LOW_ORBIT_ALTITUDE_IN_KM = ATMOSPHERE_HEIGHT_IN_KM + 10; // + 10 kilometers for having a safe low planetary orbit
+
+    // all values for deltaV will be safe and thus be *1.5 to match messiness of the real (simulated) world :p
+    private static final double SAFE_DELTAV_MODIFIER = 1.5;
 
     // should be based on the soi edge of parent planet or interplanetary transfer from the base planet (as seen from start - kerbin)
     private int DETLAV_BASE_FROM_SOI_EDGE = 0;
 
-    private static final int DELTAV_FOR_LOW_ORBIT = 3400;
-    private static final int DELTAV_FOR_INTERCEPT = 0;
-    private static final int DELTAV_FOR_SOI_EDGE_ORBIT = 0;
+    private static final double DELTAV_FOR_LOW_ORBIT = 3400;
+    private static final double DELTAV_FOR_INTERCEPT = 0;
+    private static final double DELTAV_FOR_SOI_EDGE_ORBIT = 0;
     private static final boolean AEROBRAKING_POSSIBLE_FOR_PLANET = true;
 
     private static final int DELTAV_FOR_KEOSTATIONARY_ORBIT = 1115; // only for kerbin
 
     private static final boolean HAS_MOONS = true;
 
-//    private static final List<MoonInterface> MOONS = Collections.unmodifiableList(Arrays.asList("", ""));
+    private List<MoonInterface> MOONS;
 
     private Kerbin() {
-        // do init for moons
+        // todo do init for moons
     }
 
     /**
@@ -82,22 +82,22 @@ public class Kerbin implements PlanetInterface {
     }
 
     @Override
-    public int getLowOrbitAltitude() {
+    public double getLowOrbitAltitude() {
         return LOW_ORBIT_ALTITUDE_IN_KM;
     }
 
     @Override
-    public int getDeltaVForLowOrbit() {
-        return 3400;
+    public double getDeltaVForLowOrbit() {
+        return DELTAV_FOR_LOW_ORBIT * SAFE_DELTAV_MODIFIER;
     }
 
     @Override
-    public int getDeltaVForSOIEdge() {
+    public double getDeltaVForSOIEdge() {
         return 0;
     }
 
     @Override
-    public int getDeltaVForIntercept() {
+    public double getDeltaVForIntercept() {
         return 0;
     }
 
