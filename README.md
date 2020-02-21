@@ -22,10 +22,18 @@ Because I'm not an UI expert or front-end guy don't expect much. We just do what
 
 ## Proposed features for next major update:
 
+###programming
 - Planetary data model to model planets (Back-end)
 - Some first planetary information (Back-end)
 - Display of the planetary models (UI)
 - List view for planets (UI)
+
+###project management
+- look into a free jira or trello environment to keep track of project progress
+- Make the project public
+
+###deploy
+- look for a way to get into the app store
 
 ## Version 0.0
 ### implemented
