@@ -1,6 +1,8 @@
 package nl.weiss.kerbalspacereferenceguide.datamodel.kerbin_system;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import nl.weiss.kerbalspacereferenceguide.datamodel.MoonInterface;
@@ -10,6 +12,8 @@ import nl.weiss.kerbalspacereferenceguide.datamodel.PlanetInterface;
  * For all planets implement a custom class; However it would be
  */
 public class Kerbin implements PlanetInterface {
+
+    private static Kerbin kerbin_instance = null;
 
     private static final String PLANET_NAME = "Kerbin";
     private static final int ATMOSPHERE_HEIGHT_IN_KM = 70;
@@ -26,9 +30,26 @@ public class Kerbin implements PlanetInterface {
     private static final int DELTAV_FOR_SOI_EDGE_ORBIT = 0;
     private static final boolean AEROBRAKING_POSSIBLE_FOR_PLANET = true;
 
-    private static final boolean HAS_MOONS = true;
-    private static final ArrayList<MoonInterface> moons = new ArrayList<MoonInterface>(List.of());
+    private static final int DELTAV_FOR_KEOSTATIONARY_ORBIT = 1115; // only for kerbin
 
+    private static final boolean HAS_MOONS = true;
+
+//    private static final List<MoonInterface> MOONS = Collections.unmodifiableList(Arrays.asList("", ""));
+
+    private Kerbin() {
+        // do init for moons
+    }
+
+    /**
+     * Get the current kerbin instance. Will dynamically create the moons at init
+     * @return The kerbin instance
+     */
+    public static Kerbin getInstance() {
+        if (kerbin_instance == null) {
+            kerbin_instance = new Kerbin();
+        }
+        return kerbin_instance;
+    }
 
     @Override
     public String getName() {
